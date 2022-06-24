@@ -1,17 +1,6 @@
 # Maven package Java project Web App to Linux on Azure
 - task: Maven@3
   inputs:
-    mavenPomFile: 'app/pom.xml'
-    publishJUnitResults: true
-    testResultsFiles: '**/surefire-reports/TEST-*.xml'
-    codeCoverageToolOption: 'Cobertura'
-    javaHomeOption: 'JDKVersion'
-    mavenVersionOption: 'Default'
-    mavenAuthenticateFeed: false
-    effectivePomSkip: false
-    sonarQubeRunAnalysis: false
-- task: Maven@3
-  inputs:
     mavenPomFile: 'pom.xml'
     publishJUnitResults: true
     testResultsFiles: '**/surefire-reports/TEST-*.xml'
@@ -24,10 +13,10 @@
 # Add steps that analyze code, save build artifacts, deploy, and more:
 # https://docs.microsoft.com/azure/devops/pipelines/languages/java
 
-trigger:
-master
+- trigger:
+- master
 
-variables:
+- variables:
 
   # Azure Resource Manager connection created during pipeline creation
   azureSubscription: '4c8e7db9-7472-409e-8b5a-49c63cab73e1'
